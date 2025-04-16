@@ -173,7 +173,7 @@ export default function BookDetail() {
     if (!isLoggedIn || !currentToken) {
       Swal.fire({
         title: 'Authentication Required',
-        text: 'Please log in to add books to your library',
+        text: 'Please log in to add contents to your library',
         icon: 'warning',
         confirmButtonColor: '#333',
         confirmButtonText: 'Log In'
@@ -683,7 +683,7 @@ export default function BookDetail() {
                     <CurrencyDollar className="flex-shrink-0 mt-1 mr-3 text-gray-500" />
                     <div>
                       <p className="text-sm text-gray-500">Price</p>
-                      <p className="font-medium">₹{book.price}</p>
+                      <p className="font-medium">bdt{book.price}</p>
                     </div>
                   </li>
                 )}
@@ -725,7 +725,7 @@ export default function BookDetail() {
                 {book.price !== null && (
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Price</p>
-                    <p className="font-medium">₹{book.price}</p>
+                    <p className="font-medium">bdt{book.price}</p>
                   </div>
                 )}
               </div>

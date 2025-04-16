@@ -16,7 +16,7 @@ const BookCard = ({ book, onClick, getImageUrl, showRemoveButton, onRemove }) =>
     <div
       className="group relative h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
       style={{ 
-        backgroundColor: 'var(--color-bg-secondary)',
+        backgroundColor: "bg-white dark:bg-gray-900",
         transform: 'translateZ(0)', // Fix for Safari rendering issue
       }}
       onClick={onClick}
@@ -52,7 +52,7 @@ const BookCard = ({ book, onClick, getImageUrl, showRemoveButton, onRemove }) =>
                 color: 'white'
               }}
             >
-              ₹{parseFloat(book.price).toFixed(0)}
+              bdt{parseFloat(book.price).toFixed(0)}
             </div>
           )}
 

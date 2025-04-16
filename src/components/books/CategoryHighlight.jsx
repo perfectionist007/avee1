@@ -7,7 +7,7 @@ const CategoryHighlight = ({
   books = [], 
   onBookClick, 
   getImageUrl, 
-  emptyMessage = "No books found in this category",
+  emptyMessage = "No works found in this category",
   onAddBook = null
 }) => {
   if (!books || books.length === 0) {
@@ -19,7 +19,7 @@ const CategoryHighlight = ({
             onClick={onAddBook}
             className="mt-3 px-3 py-1.5 bg-[var(--color-secondary)] text-white rounded-md text-sm hover:bg-opacity-90 transition-colors"
           >
-            Add Book
+            Add Content
           </button>
         )}
       </div>

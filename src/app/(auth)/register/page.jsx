@@ -103,7 +103,7 @@ export default function Register() {
     <AuthForm 
       onSubmit={handleSubmit} 
       title="Create Account"
-      subtitle="Join BookCafe today"
+      subtitle="Join Aveenir today"
       footerLink={{ href: '/login', text: 'Already have an account? Sign in' }}
     >
       <div className="space-y-4">

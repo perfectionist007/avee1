@@ -462,8 +462,8 @@ export default function BookCatalog() {
         <div className="mb-6">
           <h4 className="font-semibold mb-2 border-b pb-1" style={{ borderColor: "var(--color-border)" }}>Price Range</h4>
           <div className="mb-2 text-sm flex justify-between">
-            <span>₹0</span>
-            <span className="px-2 py-0.5 rounded" style={{ backgroundColor: "rgba(var(--color-primary-rgb), 0.1)" }}>₹{priceRange[1]}</span>
+            <span>bdt0</span>
+            <span className="px-2 py-0.5 rounded" style={{ backgroundColor: "rgba(var(--color-primary-rgb), 0.1)" }}>bdt{priceRange[1]}</span>
           </div>
           <div className="px-1 mb-2">
             <input
@@ -554,14 +554,14 @@ export default function BookCatalog() {
           --color-bg-secondary-rgb: 243, 244, 246; /* Light gray shade for backgrounds */
         }
 
-        @keyframes dot-bounce {
+       /*  @keyframes dot-bounce {
           0%, 80%, 100% { transform: translateY(0); }
           40% { transform: translateY(-4px); }
         }
         
         .animate-dot-bounce {
           animation: dot-bounce 1.4s infinite ease-in-out both;
-        }
+        } */
         
         /* Minimal search bar styles */
         .search-container {
@@ -797,7 +797,7 @@ export default function BookCatalog() {
             <CardSkeleton count={12} />
           ) : displayedBooks.length === 0 ? (
             <div className="text-center mt-8">
-              <p style={{ color: "var(--color-text-secondary)" }}>No books found</p>
+              <p style={{ color: "var(--color-text-secondary)" }}>Under development</p>
             </div>
           ) : (
             <>

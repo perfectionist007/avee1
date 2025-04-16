@@ -583,7 +583,7 @@ export default function EditBook() {
         </div>
 
         <div>
-          <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Price (₹)</label>
+          <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Price (bdt)</label>
           <input
             type="number"
             step="0.01"

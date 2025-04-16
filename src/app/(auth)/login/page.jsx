@@ -74,11 +74,7 @@ export default function Login() {
     <AuthForm 
       onSubmit={handleSubmit} 
       title="Welcome Back"
-      subtitle="Sign in to continue to BookCafe"
-      footerLink={{ 
-        href: '/register', 
-        text: "Don't have an account? Sign up" 
-      }}
+      subtitle="Sign in"
     >
       <div className="space-y-4">
         <FormInput

@@ -437,7 +437,7 @@ export default function AddMultipleBooks() {
         >
           <ArrowLeft className="text-xl" />
         </Link>
-        <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">Add Multiple Books</h1>
+        <h1 className="text-3xl font-bold text-[var(--color-text-primary)]">Add Multiple Contents</h1>
       </div>
       
       <div className="bg-[var(--color-bg-secondary)] p-6 rounded-lg mb-8">

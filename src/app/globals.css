@@ -1,23 +1,38 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Torcao';
+  src: url('/font/torcao.woff2') format('woff2'),
+       url('/font/torcao.woff') format('woff'),
+       url('/font/torcao.ttf') format('truetype'),
+       url('/font/torcao.eot'); /* optional: IE fallback */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: 1px; /* or try 0.05em for scalable spacing */
+
+}
+
 /* Import Geist font variables */
 :root {
+  --font-torcao: 'Torcao', sans-serif;
   /* Font variables */
-  --font-geist-sans: 'Geist Sans', sans-serif;
-  --font-geist-mono: 'Geist Mono', monospace;
   
   /* Primary colors */
-  --color-primary: #000000;
+  /*--color-primary: #000000;*/
+  --color-primary: #ffffff;
+  --color-text-primary: #000000;
   --color-secondary: #333333;
   --color-accent: #555555;
+  --color-pit: #000;
   
   /* Background colors */
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f5f5f5;
   
   /* Text colors */
-  --color-text-primary: #000000;
+  /*--color-text-primary: #000000;*/
   --color-text-secondary: #333333;
   --color-text-light: #555555;
   --color-text-logo: #cfc3c3;
@@ -36,11 +51,21 @@
   --navbar-height: 60px;
 }
 
+.dark {
+  --color-primary: #000000;
+  --color-text-primary: #ffffff;
+  --color-text-light: #bbbbbb;
+  --color-text-logo: #ffffff;
+  /* You can define more dark mode variables */
+}
+
 /* Sticky navbar styles */
 body {
   min-height: 100vh;
   /* Prevent content jump when navbar becomes sticky */
   scroll-padding-top: var(--navbar-height);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }
 
 /* Make all clickable elements have a pointer cursor */

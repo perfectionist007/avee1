@@ -70,7 +70,7 @@ export default function AddBook() {
     
     try {
       if (!token || !isTeacher()) {
-        throw new Error('Only teachers can add books');
+        throw new Error('Only teachers can add contents');
       }
 
       const requiredFields = ['title', 'isbn'];
@@ -128,9 +128,9 @@ export default function AddBook() {
           let errorMessage;
           try {
             const errorData = JSON.parse(errorText);
-            errorMessage = errorData.error || 'Failed to add book';
+            errorMessage = errorData.error || 'Failed to add content';
           } catch (e) {
-            errorMessage = 'Failed to add book. Please try again.';
+            errorMessage = 'Failed to add content. Please try again.';
           }
           throw new Error(errorMessage);
         }
@@ -186,7 +186,7 @@ export default function AddBook() {
       router.push('/catalog');
       
     } catch (error) {
-      console.error("Add book error:", error);
+      console.error("Add content error:", error);
       await Swal.fire({
         title: error.message.includes("Network issue") ? 'Note' : 'Error!',
         text: error.message,
@@ -571,7 +571,7 @@ export default function AddBook() {
           onClick={() => setActiveOption('single')}
         >
           <Book className="mr-2" />
-          Add Single Book
+          Add Single Content
         </button>
         
         <button
@@ -584,7 +584,7 @@ export default function AddBook() {
           onClick={() => setActiveOption('multiple')}
         >
           <FileEarmarkPlus className="mr-2" />
-          Add Multiple Books
+          Add Multiple Contents
         </button>
       </div>
     );
@@ -592,14 +592,14 @@ export default function AddBook() {
 
   return (
     <div className="max-w-3xl mx-auto py-4 sm:py-8 px-3 sm:px-4">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-[var(--color-text-primary)]">Add Books</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-[var(--color-text-primary)]">Add Contents</h1>
       
       {renderOptionButtons()}
       
       {activeOption === 'single' ? (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Book Title</label>
+            <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Content Title</label>
             <input
               type="text"
               className="w-full p-3 bg-transparent rounded focus:outline-none"
@@ -608,7 +608,7 @@ export default function AddBook() {
                 borderColor: 'var(--color-border)',
                 borderWidth: '1px',
               }}
-              placeholder="Enter book title"
+              placeholder="Enter content title"
               value={book.title}
               onChange={(e) => setBook({ ...book, title: e.target.value })}
               required
@@ -651,7 +651,7 @@ export default function AddBook() {
                 borderColor: 'var(--color-border)',
                 borderWidth: '1px',
               }}
-              placeholder="Enter book description"
+              placeholder="Enter content description"
               value={book.description}
               onChange={(e) => setBook({ ...book, description: e.target.value })}
               rows="4"
@@ -659,7 +659,7 @@ export default function AddBook() {
             />
           </div>
           
-          <div>
+          {/* <div>
             <label className="block mb-2 text-[var(--color-text-primary)] font-medium">ISBN</label>
             <input
               type="text"
@@ -675,7 +675,7 @@ export default function AddBook() {
               required
               disabled={isLoading}
             />
-          </div>
+          </div> */}
           
           <div>
             <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Author(s)</label>
@@ -705,8 +705,8 @@ export default function AddBook() {
             />
           </div>
           
-          <div>
-            <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Price (₹)</label>
+          {/* <div>
+            <label className="block mb-2 text-[var(--color-text-primary)] font-medium">Price (bdt)</label>
             <input
               type="number"
               step="0.01"
@@ -722,7 +722,7 @@ export default function AddBook() {
               onChange={(e) => setBook({ ...book, price: e.target.value })}
               disabled={isLoading}
             />
-          </div>
+          </div> */}
           
           <div className="pt-4">
             <button 
@@ -738,7 +738,7 @@ export default function AddBook() {
             >
               {isLoading ? (
                 <LoadingSpinner size="w-5 h-5" color="text-white" />
-              ) : 'Add Book'}
+              ) : 'Add Content'}
             </button>
           </div>
           

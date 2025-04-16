@@ -440,7 +440,7 @@ export default function MyLibrary() {
               style={{ backgroundColor: 'var(--color-bg-secondary)' }}
             >
               <p className="text-lg mb-4" style={{ color: 'var(--color-text-primary)' }}>
-                No books found matching "{searchQuery}"
+                No works found matching "{searchQuery}"
               </p>
               <button 
                 className="px-4 py-2 rounded-lg transition duration-300"

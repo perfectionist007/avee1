@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Forgot Password',
-  description: 'Reset your BookCafe account password by providing your email address.',
+  description: 'Reset your Aveenir account password by providing your email address.',
   keywords: 'forgot password, password recovery, reset password, account access',
 };
 
