@@ -4,16 +4,17 @@ import { ArrowRight, ArrowDownCircle } from 'react-bootstrap-icons';
 
 import { ThemeContext } from '@/components/ThemeProvider';
 
-export default function Aboutus() {
+export default function WebDevelop() {
+
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-  
+
   return (
-     <section className={`relative min-h-[85vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+    <section className={`relative min-h-[85vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
             {/* Animated patterns - reduced count for better performance */}
             <div className="absolute inset-0 overflow-hidden">
               <div
                 className="w-full h-full bg-center bg-cover bg-no-repeat opacity-70"
-                style={{ backgroundImage: "url('/img/about.webp')" }}
+                style={{ backgroundImage: "url('/img/webdevelop.webp')" }}
                 >
               </div>
              </div>
@@ -22,13 +23,13 @@ export default function Aboutus() {
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
                 <div className="lg:col-span-3 space-y-5">
                   <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black tracking-wider leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    ABOUT <span className="inline-block relative">US
+                    WEB <span className="inline-block relative">DEVELOPMENT
                       <div className="absolute h-1 w-full bottom-1"></div>
                     </span>
                   </h1>
                   
     <h2 className={`text-lg md:text-xl font-light max-w-md ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Learn about Aveenir
+                    Learn about Aveenir's Web Development
                   </h2>
                   
                   {/* <div className="pt-3 flex flex-col sm:flex-row gap-3">

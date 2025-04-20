@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @tailwind utilities;
+@tailwind components;
 
 @font-face {
   font-family: 'Torcao';
@@ -46,9 +47,10 @@
   
   /* Focus ring */
   --color-focus-ring: #000000;
-  
+
+
   /* Navbar height for spacing */
-  --navbar-height: 60px;
+/*   --navbar-height: 60px;*/
 }
 
 .dark {
@@ -59,14 +61,6 @@
   /* You can define more dark mode variables */
 }
 
-/* Sticky navbar styles */
-body {
-  min-height: 100vh;
-  /* Prevent content jump when navbar becomes sticky */
-  scroll-padding-top: var(--navbar-height);
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-}
 
 /* Make all clickable elements have a pointer cursor */
 button,
@@ -92,50 +86,79 @@ label[for] {
   margin-bottom: 1rem;
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-  /* Improve tap target sizes on mobile */
-  button, 
-  a, 
-  input[type="submit"],
-  input[type="button"],
-  input[type="reset"],
-  [role="button"] {
-    min-height: 44px;
-    padding: 0.5rem 1rem;
+/* START NAVBAR 2 */
+
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+  column-gap: 0.25rem;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  /* Ensure text is readable on small screens */
-  body {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  /* Improve form elements on mobile */
-  input, 
-  select, 
-  textarea {
-    font-size: 16px; /* Prevents iOS zoom on focus */
-  }
-  
-  /* Add some breathing room on mobile */
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  /* Improve spacing between book cards */
-  .grid-cols-2 {
-    column-gap: 0.75rem;
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* Custom utility class to hide scrollbars but keep scrolling ability */
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* Internet Explorer and Edge */
-  scrollbar-width: none;  /* Firefox */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.sub-menu {
+  position: absolute;
+  top: 4.2rem;
+  padding: 15px;
+  border-radius: 6px;
+  transform-origin: 50% -170px;
+  backdrop-filter: blur(10px); /* approx match for backdrop-blur */
+  z-index: 9;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-flex-center{
+  display: flex;
+  align-items: center;
+}
+
+/* END NAVBAR 2 */
+
+section{
+  position: relative;
 }

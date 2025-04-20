@@ -42,9 +42,9 @@ export default function Home() {
       }, []);
   
   return (
-<main className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+<main className={`${isDarkMode ? 'bg-black' : 'bg-white'}`}>
 {/* Hero Section - Minimalist Book Aesthetic */}
-      <section className={`relative min-h-[85vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+      <section className={`relative min-h-[75vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
         {/* Animated patterns - reduced count for better performance */}
         <div className="absolute inset-0 overflow-hidden">
           <div
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="lg:col-span-3 space-y-5">
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black tracking-wider leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
                 AVEE<span className="inline-block relative">NIR
-                  <div className="absolute h-1 w-full bottom-1"></div>
+                  <div className="h-1 w-full bottom-1"></div>
                 </span>
               </h1>
               
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         {/* END SLIDER HERE */}
         
-        <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white to-transparent"></div>
+        <div className="bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white to-transparent"></div>
       </section>
 
       {/* Features Section - Aesthetic Grid */}

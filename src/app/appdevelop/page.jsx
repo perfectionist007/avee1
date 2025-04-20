@@ -1,10 +1,8 @@
 'use client';
 import { useContext } from 'react';
-import { ArrowRight, ArrowDownCircle } from 'react-bootstrap-icons';
-
 import { ThemeContext } from '@/components/ThemeProvider';
 
-export default function Services() {
+export default function AppDevelopment() {
 
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
@@ -14,7 +12,7 @@ export default function Services() {
             <div className="absolute inset-0 overflow-hidden">
               <div
                 className="w-full h-full bg-center bg-cover bg-no-repeat opacity-70"
-                style={{ backgroundImage: "url('/img/services.webp')" }}
+                style={{ backgroundImage: "url('/img/appdevelop.jpg')" }}
                 >
               </div>
              </div>
@@ -23,13 +21,13 @@ export default function Services() {
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
                 <div className="lg:col-span-3 space-y-5">
                   <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black tracking-wider leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    OUR <span className="inline-block relative">SERVICES
+                    APP <span className="inline-block relative">DEVELOPMENT
                       <div className="absolute h-1 w-full bottom-1"></div>
                     </span>
                   </h1>
                   
     <h2 className={`text-lg md:text-xl font-light max-w-md ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Learn about Aveenir's Services
+                    Learn about Aveenir's App Development
                   </h2>
                   
                   {/* <div className="pt-3 flex flex-col sm:flex-row gap-3">
