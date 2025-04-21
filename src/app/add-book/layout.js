@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Add New Book',
-  description: 'Add a new educational book to the Aveenir library collection.',
+  description: 'Add a new content to the Aveenir library collection.',
   keywords: 'add content, upload book, contribute, new resource',
 };
 

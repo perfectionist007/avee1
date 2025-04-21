@@ -4,6 +4,11 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect, useContext  } from 'react';
 import { JournalBookmark, People, Laptop, ArrowRight, Stack, ArrowDownCircle } from 'react-bootstrap-icons';
 import { ThemeContext } from '@/components/ThemeProvider';
+import ImageCarousel from "@/components/image-carousel"
+import ProductSlider from "@/components/product-slider"
+import { Card, CardContent } from "@/components/ui/card"
+/* import ClientSlider from "@/components/client-slider" */
+import ClientFluidGrid from "@/components/client-fluid-grid"
 
 
 export default function Home() {
@@ -42,10 +47,11 @@ export default function Home() {
       }, []);
   
   return (
-<main className={`${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+        <main className={`${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+        <ImageCarousel />
+
 {/* Hero Section - Minimalist Book Aesthetic */}
-      <section className={`relative min-h-[75vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-        {/* Animated patterns - reduced count for better performance */}
+      {/* <section className={`relative min-h-[75vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="w-full h-full bg-center bg-cover bg-no-repeat opacity-70"
@@ -53,7 +59,6 @@ export default function Home() {
             >
           </div>
          </div>
-{/* START SLIDER HERE */}
         <div className="container mx-auto px-6 py-8 md:py-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
             <div className="lg:col-span-3 space-y-5">
@@ -92,15 +97,14 @@ export default function Home() {
            
           </div>
         </div>
-        {/* END SLIDER HERE */}
         
         <div className="bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white to-transparent"></div>
-      </section>
+      </section> */}
 
       {/* Features Section - Aesthetic Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className={`py-24 ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-black mb-16 uppercase tracking-tight text-center">
+          <h2 className="text-6xl md:text-6xl font-black mb-16 uppercase tracking-tight text-center">
             The Aveenir Experience
           </h2>
           
@@ -108,34 +112,83 @@ export default function Home() {
             {[
               {
                 icon: <Stack className="text-3xl" />,
-                title: "Curated Collection",
-                desc: "Carefully selected titles across genres for quality reading experiences."
+                title: "Website Development",
+                desc: "We provide an affordable, fast-loading, compatible, and highly secure website service"
               },
               {
                 icon: <People className="text-3xl" />,
-                title: "Reader Community",
-                desc: "Connect with fellow book enthusiasts and share recommendations."
+                title: "ERP Development",
+                desc: "We offer fully customized, user-friendly, efficient, and secure custom software to"
+              },
+              ,
+              {
+                icon: <People className="text-3xl" />,
+                title: "Database Management",
+                desc: "We offer Development and maintainence of ERP and Database"
               },
               {
                 icon: <Laptop className="text-3xl" />,
-                title: "Digital First",
-                desc: "Read anywhere with our responsive platform optimized for all devices."
+                title: "Graphical Solution",
+                desc: "We offer high-quality, visually-appealing, and professional graphics design services."
               },
               {
                 icon: <JournalBookmark className="text-3xl" />,
-                title: "Personal Library",
-                desc: "Build your own collection of favorites with custom reading lists."
+                title: "Digital Marketing",
+                desc: "We provide comprehensive digital marketing services to help you achieve your business goals."
+              },
+              {
+                icon: <Laptop className="text-3xl" />,
+                title: "Digital Marketing Solution",
+                desc: "We offer a variety of mobile digital marketing solutions, across all platform, and hybrid options,"
+              },
+              {
+                icon: <JournalBookmark className="text-3xl" />,
+                title: "Videography & Photography Support",
+                desc: "We provide expert photography and videography services that capture stunning"
+              },
+              {
+                icon: <JournalBookmark className="text-3xl" />,
+                title: "VFX & Animation",
+                desc: "We offer state-of-the-art visual effects and animation services to bring your ideas to life."
               }
             ].map((feature, i) => (
-              <div key={i} className="p-10 md:p-12 bg-white flex flex-col group hover:bg-black hover:text-white transition-colors duration-500">
+              <div key={i} className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}p-10 md:p-12 flex flex-col group hover:bg-black hover:text-white transition-colors duration-500`}>
                 <div className="mb-6">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-gray-600 group-hover:text-gray-300 transition-colors duration-500">
+                <h3 className="text-4xl font-bold mb-4">{feature.title}</h3>
+                <p className={`text-2xl transition-colors duration-500`}>
                   {feature.desc}
                 </p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section>
+        <ProductSlider/>
+      </section>
+
+      <section>
+        <ClientFluidGrid/>
+      </section>
+
+      {/* Stats Section */}
+      <section className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} container mx-auto px-4 py-34`}>
+        <div className="grid gap-8 md:grid-cols-4">
+          {[
+            { label: "Active Users", value: "10,000+", icon: "👥" },
+            { label: "Transactions", value: "$2M+", icon: "💰" },
+            { label: "Success Rate", value: "99.8%", icon: "📈" },
+            { label: "Verified Sellers", value: "2,500+", icon: "✅" },
+          ].map((stat, index) => (
+            <Card key={index} className="hover-card-effect overflow-hidden border-none text-center">
+              <CardContent className="p-6">
+                <div className="mb-4 text-4xl">{stat.icon}</div>
+                <h3 className="mb-1 text-3xl font-bold text-primary">{stat.value}</h3>
+                <p className="text-muted-foreground">{stat.label}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 

@@ -9,7 +9,7 @@ export default function WebDevelop() {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <section className={`relative min-h-[85vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+    <section className={`relative min-h-[45vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
             {/* Animated patterns - reduced count for better performance */}
             <div className="absolute inset-0 overflow-hidden">
               <div

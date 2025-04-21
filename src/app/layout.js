@@ -6,17 +6,18 @@ import { AuthProvider } from '../components/context/AuthContext';
 import Navbar2 from '@/components/Navbar2';
 import { TransitionProvider } from '@/components/PageTransitionProvider';
 
+
 /* import PageTransitionWrapper from '@/components/PageTransitionWrapper';
  */
 
 import ThemeProvider from '@/components/ThemeProvider'; // we'll create this
 
 export const metadata = {
-  title: 'Aveenir | Your Digital Educational Library',
+  title: 'Aveenir | Best IT Development and Service Provider',
   description:
-    'Aveenir is an educational platform for students and teachers to discover, read, and learn with our extensive collection of digital books.',
+    'Aveenir is the best platform to get all your IT needs under one roof',
   keywords:
-    'books, education, digital library, learning, reading, students, teachers',
+    'web development, digital marketing, mobile app development, cyber security',
 };
 
 export const viewport = {

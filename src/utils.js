@@ -21,7 +21,7 @@ import { PanelTop } from "lucide-react";
 export const Menus = [
   {
     name: "About",
-    subMenuHeading: ["Company", "Team"],
+    /* subMenuHeading: ["Company", "Team"], */
     subMenu: [
       {
         name: "Company Overview",
@@ -60,18 +60,21 @@ export const Menus = [
 
       },
       {
-        name: "Software Development",
+        name: "ERP Development",
         desc: "Custom Software Develop across all platforms",
         icon: ShoppingBag,
         link: "/softwaredevelop"
-
       },
       {
         name: "Mobile Application Development",
         desc: "Software within yours palms",
         icon: MapPin,
         link: "/appdevelop"
-
+      },
+      {
+        name: "Digital Marketing Services",
+        desc: "Developing high end Animation",
+        icon: TriangleAlert,
       },
     ],
     gridCols: 2,
@@ -98,34 +101,33 @@ export const Menus = [
     gridCols: 1,
   },
   {
-    name: "Enterprise",
-    subMenuHeading: ["Overview", "Features"],
+    name: "Our Products",
     subMenu: [
       {
-        name: "Enterprise",
-        desc: "Overview",
-        icon: ShieldPlus,
+        name: "Hospital Management",
+        desc: "Manage Hospital from our ERP",
+        icon: CircleHelp,
       },
       {
-        name: "Collaboration",
-        desc: "Design together",
-        icon: Users,
+        name: "Jail Management",
+        desc: "Manage Jail Prisoners from our high end ERP Solution",
+        icon: MessageCircle,
       },
       {
-        name: "Customers",
-        desc: "Stories",
-        icon: Dessert,
+        name: "POS",
+        desc: "Manage and monitor your store from our Point of Sales ERP",
+        icon: TriangleAlert,
       },
       {
-        name: "Security",
-        desc: "Your site secured",
-        icon: Lock,
+        name: "HR Management",
+        desc: "Manage your company's HR through our ERP system",
+        icon: TriangleAlert,
       },
     ],
-    gridCols: 2,
+    gridCols: 1,
   },
   {
-    name: "Pricing",
+    name: "Gallery",
   },
   {
     name: "Contact",
