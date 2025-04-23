@@ -1,59 +1,157 @@
-'use client';
-import { useContext } from 'react';
+"use client"
 
-import { ThemeContext } from '@/components/ThemeProvider';
+import { useState } from "react"
+import WaveBackground from "@/components/wave-background"
+import Image from "next/image"
+import { motion } from "framer-motion"
+
 
 export default function Team() {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-  
+  const teamMembers = [
+    {
+      id: 1,
+      name: "Ontor Azan",
+      role: "CEO & Founder",
+      image: "/team/ceo.png?height=400&width=400",
+    },
+    {
+      id: 2,
+      name: "Person 1",
+      role: "CTO",
+      image: "/team/1.png?height=400&width=400",
+    },
+    {
+      id: 3,
+      name: "Person 2",
+      role: "Design Director",
+      image: "/team/2.png?height=400&width=400",
+    },
+    {
+      id: 4,
+      name: "Person 3",
+      role: "Marketing Lead",
+      image: "/team/3.png?height=400&width=400",
+    },
+    {
+      id: 5,
+      name: "Person 4",
+      role: "Product Manager",
+      image: "/team/4.png?height=400&width=400",
+    },
+    {
+      id: 6,
+      name: "Person 5",
+      role: "Lead Developer",
+      image: "/team/5.png?height=400&width=400",
+    },
+    {
+      id: 7,
+      name: "Person 6",
+      role: "UX Researcher",
+      image: "/team/4.png?height=400&width=400",
+    },
+    {
+      id: 8,
+      name: "Person 7",
+      role: "Backend Engineer",
+      image: "/team/3.png?height=400&width=400",
+    },
+    {
+      id: 9,
+      name: "Person 8",
+      role: "Content Strategist",
+      image: "/team/2.png?height=400&width=400",
+    },
+    {
+      id: 10,
+      name: "Person 9",
+      role: "Financial Advisor",
+      image: "/team/1.png?height=400&width=400",
+    },
+  ]
+
   return (
-     <section className={`relative min-h-[45vh] flex items-center overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-            {/* Animated patterns - reduced count for better performance */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div
-                className="w-full h-full bg-center bg-cover bg-no-repeat opacity-70"
-                style={{ backgroundImage: "url('/img/team.webp')" }}
-                >
-              </div>
-             </div>
-    {/* START SLIDER HERE */}
-            <div className="container mx-auto px-6 py-8 md:py-12 relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
-                <div className="lg:col-span-3 space-y-5">
-                  <h1 className={`text-5xl md:text-6xl lg:text-7xl font-black tracking-wider leading-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Team <span className="inline-block relative">
-                      <div className="absolute h-1 w-full bottom-1"></div>
-                    </span>
-                  </h1>
-                  
-    <h2 className={`text-lg md:text-xl font-light max-w-md ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                    Learn about our team
-                  </h2>
-                  
-                  {/* <div className="pt-3 flex flex-col sm:flex-row gap-3">
-                    <button
-                      className="group flex items-center justify-center gap-2 px-6 py-3 bg-black text-white font-semibold hover:bg-gray-900 transition-all duration-300 rounded-none"
-                    >
-                      <span>BROWSE</span>
-                      <ArrowRight className="transition-transform duration-300 group-hover:translate-x-2" />
-                    </button>
-                    
-                    <button
-                      className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-black border border-black font-semibold hover:bg-gray-100 transition-all duration-300 rounded-none"
-                    >
-                      <span>DISCOVER</span>
-                      <ArrowDownCircle />
-                    </button>
-                  </div> */}
-                </div>
-                
-               
-              </div>
+    <>
+    {/* Hero Section with Wave Background */}
+          <section className="relative h-[30vh] flex items-center justify-center overflow-hidden">
+            <WaveBackground />
+            <div className="relative z-10">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center">Our Team</h1>
             </div>
-            {/* END SLIDER HERE */}
-            
-            <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white to-transparent"></div>
           </section>
-    
-  );
+          <div className="container mx-auto px-4 py-16">
+            <div className="text-center mb-16">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Meet the talented individuals who make our company thrive with their expertise and dedication.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 px-4">
+              {teamMembers.map((member) => (
+                <TeamMemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+    </>
+  )
+}
+
+function TeamMemberCard({ member }) {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <div
+      className="relative flex flex-col items-center justify-center mx-auto px-2 sm:px-4 h-[250px]"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: member.id * 0.1 }}
+        className="relative mb-4 overflow-hidden rounded-full"
+        style={{ width: "180px", height: "180px" }}
+      >
+        <motion.div
+          className="absolute inset-0 rounded-full z-10"
+          animate={{
+            backgroundColor: isHovered ? "rgba(99, 102, 241, 0.3)" : "rgba(0, 0, 0, 0)",
+          }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <motion.div
+          className="w-full h-full relative"
+          animate={{
+            rotate: isHovered ? 5 : 0,
+            scale: isHovered ? 1.1 : 1,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }}
+        >
+          <Image
+            src={member.image || "/placeholder.svg"}
+            alt={member.name}
+            fill
+            className={`object-cover transition-all duration-300 ${isHovered ? "" : "grayscale"}`}
+          />
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="text-center w-full"
+        animate={{
+          opacity: isHovered ? 1 : 0,
+          y: isHovered ? 0 : 10,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <h3 className="font-bold text-lg">{member.name}</h3>
+        <p className="text-sm text-muted-foreground">{member.role}</p>
+      </motion.div>
+    </div>
+  )
 }

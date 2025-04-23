@@ -28,11 +28,13 @@ export default function MobMenu({ Menus }) {
       </button>
 
       <motion.div
-        className="fixed left-0 right-0 top-16 overflow-y-auto h-full bg-[#18181A] backdrop-blur text-white p-6 pb-20"
+        className="z-10 fixed left-0 right-0 sm:px-[0px] top-16 max-h-full bg-black backdrop-blur text-white pb-20"
         initial={{ x: "-100%" }}
         animate={{ x: isOpen ? "0%" : "-100%" }}
       >
-        <ul>
+        <ul
+          className="bg-black"
+        >
           {Menus.map(({ name, subMenu }, i) => {
             const isClicked = clicked === i;
             const hasSubMenu = subMenu?.length;

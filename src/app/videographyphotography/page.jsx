@@ -1,11 +1,10 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion"
-import { useRef } from "react"
 import { Database, Globe, Layout, Layers, Smartphone, Cloud, Server, Shield } from "lucide-react"
 
-export default function SoftwareDevelop() {
+export default function VideographyPhotography() {
   return (
     <main className="min-h-screen">
       <HeroSection />
@@ -17,8 +16,8 @@ export default function SoftwareDevelop() {
 function HeroSection() {
   return (
     <div className="relative h-[35vh] flex items-center justify-center overflow-hidden text-white">
-      {/* Animated geometric background */}
-      <GeometricBackground />
+      {/* Abstract animated Lottie background */}
+      <AbstractBackground />
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center">
@@ -28,7 +27,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          ERP Development
+          Videography and Photography Solutions
         </motion.h1>
 
         <motion.div
@@ -37,9 +36,9 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <p className="flex items-center justify-center flex-wrap gap-2 text-black text-bold">
-            We Develop ERP and maintain <AnimatedFrameworks />
-          </p>
+          <div className="flex items-center justify-center flex-wrap gap-2 text-black text-bold">
+            We Develop in <AnimatedFrameworks />
+          </div>
         </motion.div>
       </div>
 
@@ -50,7 +49,7 @@ function HeroSection() {
 }
 
 function AnimatedFrameworks() {
-  const frameworks = ["Security", "Database Management", "Dev Ops", "Cloud Infrastructure"]
+  const frameworks = ["Video", "Photography", "Solution"]
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -79,49 +78,95 @@ function AnimatedFrameworks() {
   )
 }
 
-function GeometricBackground() {
-  // Generate random triangles
-  const triangles = Array.from({ length: 15 }).map((_, i) => ({
+function AbstractBackground() {
+  const shapes = Array.from({ length: 60 }).map((_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 100 + 50, // Between 50 and 150
-    rotation: Math.random() * 360,
-    duration: Math.random() * 20 + 20, // Between 20 and 40 seconds
-    delay: Math.random() * -20,
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight * 0.35, // HeroSection is 35vh
+    size: Math.random() * 40 + 20,
+    color: Math.random() > 0.5 ? "#F47F20" : "#424143",
+    type: ["circle", "triangle", "hex"][Math.floor(Math.random() * 3)],
+    delay: Math.random() * 5,
+    direction: Math.random() > 0.5 ? 1 : -1,
   }))
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      {triangles.map((triangle) => (
-        <motion.div
-          key={triangle.id}
-          className="absolute opacity-10"
-          style={{
-            left: `${triangle.x}%`,
-            top: `${triangle.y}%`,
-            width: 0,
-            height: 0,
-            borderLeft: `${triangle.size / 2}px solid transparent`,
-            borderRight: `${triangle.size / 2}px solid transparent`,
-            borderBottom: `${triangle.size}px solid`,
-            rotate: `${triangle.rotation}deg`,
-          }}
-          animate={{
-            borderBottomColor: ["#424143", "#F47F20", "#424143"],
-            x: [0, Math.random() * 100 - 50, 0],
-            y: [0, Math.random() * 100 - 50, 0],
-            rotate: [`${triangle.rotation}deg`, `${triangle.rotation + 180}deg`, `${triangle.rotation + 360}deg`],
-          }}
-          transition={{
-            duration: triangle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            delay: triangle.delay,
-            ease: "linear",
-          }}
-        />
-      ))}
-    </div>
+    <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
+      {shapes.map((shape) => {
+        const duration = 20 + Math.random() * 10
+        const moveY = shape.direction * (10 + Math.random() * 20)
+
+        switch (shape.type) {
+          case "circle":
+            return (
+              <motion.circle
+                key={shape.id}
+                cx={shape.x}
+                cy={shape.y}
+                r={shape.size / 2}
+                fill={shape.color}
+                initial={{ y: 0 }}
+                animate={{ y: [0, moveY, 0] }}
+                transition={{
+                  duration,
+                  delay: shape.delay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )
+          case "triangle":
+            const triPoints = `${shape.size},0 0,${shape.size} ${shape.size * 2},${shape.size}`
+            return (
+              <motion.polygon
+                key={shape.id}
+                points={triPoints}
+                fill={shape.color}
+                transform={`translate(${shape.x}, ${shape.y}) scale(0.4)`}
+                initial={{ y: 0 }}
+                animate={{ y: [0, moveY, 0] }}
+                transition={{
+                  duration,
+                  delay: shape.delay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )
+          case "hex":
+            const s = shape.size / 2
+            const h = s * Math.sqrt(3)
+            const hexPoints = [
+              [s, 0],
+              [2 * s, h / 2],
+              [2 * s, (3 * h) / 2],
+              [s, 2 * h],
+              [0, (3 * h) / 2],
+              [0, h / 2],
+            ]
+              .map(([px, py]) => `${px},${py}`)
+              .join(" ")
+            return (
+              <motion.polygon
+                key={shape.id}
+                points={hexPoints}
+                fill={shape.color}
+                transform={`translate(${shape.x}, ${shape.y}) scale(0.3)`}
+                initial={{ y: 0 }}
+                animate={{ y: [0, moveY, 0] }}
+                transition={{
+                  duration,
+                  delay: shape.delay,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )
+          default:
+            return null
+        }
+      })}
+    </svg>
   )
 }
 
@@ -240,3 +285,4 @@ function TechnologyCard({ tech, index }) {
     </motion.div>
   )
 }
+

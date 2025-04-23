@@ -9,10 +9,12 @@ import Image from 'next/image';
 import DesktopMenu from "./DesktopMenu";
 import MobMenu from "./MobMenu";
 import Link from 'next/link';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 
 export default function Navbar2() {
     const [mounted, setMounted] = useState(false);
+    const isMobile = useIsMobile();
     const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
    /*  useEffect(() => {
@@ -41,7 +43,8 @@ export default function Navbar2() {
           window.removeEventListener('loginStateChange', checkAuth);
         };
       }, []); */
-    
+  if (isMobile === null) return null;
+
     
     return (
           <header className={`sticky top-0 z-50 border-b h-16 text-[15px] backdrop-blur supports-[backdrop-filter]:bg-background/60 inset-0 flex-center ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
@@ -60,12 +63,16 @@ export default function Navbar2() {
                 <h3 className="text-2xl font-semibold">Aveenir</h3>
               </div>
             </Link>
-    
-              <ul className="gap-x-1 custom-flex-center hidden">
+            {isMobile ? (
+              <MobMenu Menus={Menus} />
+              ) : (
+              <>
+              <ul className="gap-x-1 custom-flex-center">
                 {Menus.map((menu) => (
                   <DesktopMenu menu={menu} key={menu.name} />
                 ))}
               </ul>
+
               <div className="flex-center gap-x-5">
                 <button
                   aria-label="sign-in"
@@ -79,11 +86,11 @@ export default function Navbar2() {
                         >
                         {isDarkMode ? '🌙' : '☀️'}
                         </button>
-                    
-                <div className="lg:hidden">
-                  <MobMenu Menus={Menus} />
-                </div>
               </div>
+              </>
+            )}
+
+              
             </nav>
           </header>
       );

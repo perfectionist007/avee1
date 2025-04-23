@@ -125,7 +125,7 @@ export default function ClientSlider() {
   return (
     <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} py-16`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-6xl font-bold text-center mb-8">OUR CLIENTS</h2>
+        <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8">OUR CLIENTS</h2>
 
         <div className="relative">
           <div

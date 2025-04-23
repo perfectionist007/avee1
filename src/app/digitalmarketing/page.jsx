@@ -5,7 +5,7 @@ import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion"
 import { useRef } from "react"
 import { Database, Globe, Layout, Layers, Smartphone, Cloud, Server, Shield } from "lucide-react"
 
-export default function SoftwareDevelop() {
+export default function DigitalMarketing() {
   return (
     <main className="min-h-screen">
       <HeroSection />
@@ -28,7 +28,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          ERP Development
+          Digital Marketing
         </motion.h1>
 
         <motion.div
@@ -38,7 +38,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <p className="flex items-center justify-center flex-wrap gap-2 text-black text-bold">
-            We Develop ERP and maintain <AnimatedFrameworks />
+            We take care of you digital marketing <AnimatedFrameworks />
           </p>
         </motion.div>
       </div>
@@ -50,7 +50,7 @@ function HeroSection() {
 }
 
 function AnimatedFrameworks() {
-  const frameworks = ["Security", "Database Management", "Dev Ops", "Cloud Infrastructure"]
+  const frameworks = ["facebook", "youtube", "twitter-x", "google"]
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {

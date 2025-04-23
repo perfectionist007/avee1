@@ -104,7 +104,7 @@ export default function ProductSlider() {
   return (
     <div className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'} container mx-auto py-16`}>
       <div className="mx-auto px-4 sm:px-6">
-        <h2 className="text-6xl font-bold text-center mb-8">OUR PRODUCTS</h2>
+        <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-8">OUR PRODUCTS</h2>
 
         <div className="relative">
           <div
@@ -148,7 +148,7 @@ export default function ProductSlider() {
                       </div>
                     </div>
                     <div className="p-4">
-                      <h3 className={`text-black text-2xl font-semibold mb-1 truncate`}>{product.name}</h3>
+                      <h3 className={`text-black text-2xl sm:text-sm md:text-xl lg:text-2xl font-semibold mb-1 truncate`}>{product.name}</h3>
                     </div>
                   </div>
                 </motion.div>

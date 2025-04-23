@@ -104,9 +104,10 @@ export default function Home() {
       {/* Features Section - Aesthetic Grid */}
       <section className={`py-24 ${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}`}>
         <div className="container mx-auto px-6">
-          <h2 className="text-6xl md:text-6xl font-black mb-16 uppercase tracking-tight text-center">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-16 uppercase tracking-tight text-center">
             The Aveenir Experience
           </h2>
+
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-300">
             {[
@@ -154,8 +155,8 @@ export default function Home() {
             ].map((feature, i) => (
               <div key={i} className={`${isDarkMode ? 'bg-black text-white' : 'bg-white text-black'}p-10 md:p-12 flex flex-col group hover:bg-black hover:text-white transition-colors duration-500`}>
                 <div className="mb-6">{feature.icon}</div>
-                <h3 className="text-4xl font-bold mb-4">{feature.title}</h3>
-                <p className={`text-2xl transition-colors duration-500`}>
+                <h3 className="text-2xl sm:text-sm md:text-xl lg:text-2xl font-bold mb-4 ">{feature.title}</h3>
+                <p className={`text-xl sm:text-xs md:text-sm lg:text-xl transition-colors duration-500`}>
                   {feature.desc}
                 </p>
               </div>
@@ -189,18 +190,6 @@ export default function Home() {
               </CardContent>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* Footer Banner */}
-      <section className="bg-black text-white py-16">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-2xl md:text-3xl font-light max-w-2xl mx-auto mb-6">
-            Redefining the digital reading experience, one page at a time.
-          </p>
-          <div className="inline-flex items-center bg-white text-black px-6 py-3 font-medium">
-            <span>© Aveenir {new Date().getFullYear()}</span>
-          </div>
         </div>
       </section>
     </main>

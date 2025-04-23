@@ -222,3 +222,55 @@ label[for] {
 section{
   position: relative;
 }
+
+/* START: About US */
+
+@keyframes wave-slow {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  50% {
+    transform: translateX(-2%) translateZ(0);
+  }
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+@keyframes wave-normal {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  50% {
+    transform: translateX(2%) translateZ(0);
+  }
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+@keyframes wave-fast {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  50% {
+    transform: translateX(-1%) translateZ(0);
+  }
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+@layer utilities {
+  .animate-wave-slow {
+    animation: wave-slow 7s ease-in-out infinite;
+  }
+  .animate-wave-normal {
+    animation: wave-normal 5s ease-in-out infinite;
+  }
+  .animate-wave-fast {
+    animation: wave-fast 3s ease-in-out infinite;
+  }
+}
+
+/* END: About Us */

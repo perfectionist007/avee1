@@ -24,10 +24,10 @@ export const Menus = [
     /* subMenuHeading: ["Company", "Team"], */
     subMenu: [
       {
-        name: "Company Overview",
+        name: "About Us",
         desc: "Overview of our company",
         icon: PanelsTopLeft,
-        link: "/companyoverview"
+        link: "/aboutus"
       },
       {
         name: "Mission & Vision",
@@ -45,6 +45,7 @@ export const Menus = [
         name: "Concern",
         desc: "Our Concern",
         icon: Database,
+        link: "/ourconcern"
       },
     ],
     gridCols: 2,
@@ -75,6 +76,8 @@ export const Menus = [
         name: "Digital Marketing Services",
         desc: "Developing high end Animation",
         icon: TriangleAlert,
+        link: "/digitalmarketing"
+
       },
     ],
     gridCols: 2,
@@ -86,16 +89,21 @@ export const Menus = [
         name: "Graphical Solutions",
         desc: "View and learn about our graphical solutions",
         icon: CircleHelp,
+        link: "/graphicalsolutions"
+
       },
       {
         name: "Videography and Photography Support",
         desc: "Excellent videogrph and photograph at your needs",
         icon: MessageCircle,
+        link: "/videographyphotography"
+
       },
       {
         name: "VFX and Animation",
         desc: "Developing high end Animation",
         icon: TriangleAlert,
+        link: "/vfxanimation"
       },
     ],
     gridCols: 1,
