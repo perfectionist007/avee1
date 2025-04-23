@@ -79,16 +79,23 @@ function AnimatedFrameworks() {
 }
 
 function AbstractBackground() {
-  const shapes = Array.from({ length: 60 }).map((_, i) => ({
-    id: i,
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight * 0.35, // HeroSection is 35vh
-    size: Math.random() * 40 + 20,
-    color: Math.random() > 0.5 ? "#F47F20" : "#424143",
-    type: ["circle", "triangle", "hex"][Math.floor(Math.random() * 3)],
-    delay: Math.random() * 5,
-    direction: Math.random() > 0.5 ? 1 : -1,
-  }))
+  const [shapes, setShapes] = useState([])
+
+  useEffect(() => {
+    const numShapes = 120
+    const generatedShapes = Array.from({ length: numShapes }).map((_, i) => ({
+      id: i,
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight * 0.35,
+      size: Math.random() * 40 + 20,
+      color: Math.random() > 0.5 ? "#F47F20" : "#424143",
+      type: ["circle", "triangle", "hex"][Math.floor(Math.random() * 3)],
+      delay: Math.random() * 5,
+      direction: Math.random() > 0.5 ? 1 : -1,
+      baseOpacity: 0.05 + Math.random() * 0.1,
+    }))
+    setShapes(generatedShapes)
+  }, [])
 
   return (
     <svg className="absolute inset-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +112,7 @@ function AbstractBackground() {
                 cy={shape.y}
                 r={shape.size / 2}
                 fill={shape.color}
+                fillOpacity={shape.baseOpacity}
                 initial={{ y: 0 }}
                 animate={{ y: [0, moveY, 0] }}
                 transition={{
@@ -122,6 +130,7 @@ function AbstractBackground() {
                 key={shape.id}
                 points={triPoints}
                 fill={shape.color}
+                fillOpacity={shape.baseOpacity}
                 transform={`translate(${shape.x}, ${shape.y}) scale(0.4)`}
                 initial={{ y: 0 }}
                 animate={{ y: [0, moveY, 0] }}
@@ -151,6 +160,7 @@ function AbstractBackground() {
                 key={shape.id}
                 points={hexPoints}
                 fill={shape.color}
+                fillOpacity={shape.baseOpacity}
                 transform={`translate(${shape.x}, ${shape.y}) scale(0.3)`}
                 initial={{ y: 0 }}
                 animate={{ y: [0, moveY, 0] }}
@@ -169,6 +179,7 @@ function AbstractBackground() {
     </svg>
   )
 }
+
 
 function TechnologiesSection() {
   const technologies = [
