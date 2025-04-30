@@ -180,7 +180,6 @@ function AbstractBackground() {
   )
 }
 
-
 function TechnologiesSection() {
   const technologies = [
     {

@@ -1,23 +1,23 @@
 @import "tailwindcss";
 @tailwind utilities;
 @tailwind components;
+@import "../styles/interfont/inter.css";
 
-@font-face {
+/* @font-face {
   font-family: 'Torcao';
   src: url('/font/torcao.woff2') format('woff2'),
        url('/font/torcao.woff') format('woff'),
        url('/font/torcao.ttf') format('truetype'),
-       url('/font/torcao.eot'); /* optional: IE fallback */
+       url('/font/torcao.eot'); 
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-  letter-spacing: 1px; /* or try 0.05em for scalable spacing */
-
-}
+  letter-spacing: 1px; 
+} */
 
 /* Import Geist font variables */
 :root {
-  --font-torcao: 'Torcao', sans-serif;
+  --font-torcao:'Inter', sans-serif;
   /* Font variables */
   
   /* Primary colors */

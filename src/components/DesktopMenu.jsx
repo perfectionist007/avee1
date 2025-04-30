@@ -34,14 +34,22 @@ export default function DesktopMenu({ menu }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <motion.li className="group/link list-none text-2xl">
-        <span className="text-2xl custom-flex-center gap-1 hover:bg-white/5 cursor-pointer px-3 py-1 rounded-xl">
-          {menu.name}
-          {hasSubMenu && (
+      <motion.li className="group/link list-none text-xl">
+        {hasSubMenu ? (
+          <span className="text-xl custom-flex-center gap-1 hover:bg-white/5 cursor-pointer px-3 py-1 rounded-xl">
+            {menu.name}
             <ChevronDown className="mt-[0.6px] group-hover/link:rotate-180 duration-200" />
-          )}
-        </span>
+          </span>
+        ) : (
+          <span
+            onClick={() => navigate(menu.link || "#")}
+            className="text-xl custom-flex-center gap-1 hover:bg-white/5 cursor-pointer px-3 py-1 rounded-xl"
+          >
+            {menu.name}
+          </span>
+        )}
       </motion.li>
+
 
       {hasSubMenu && (
         <motion.div
@@ -76,7 +84,7 @@ export default function DesktopMenu({ menu }) {
                       {submenu.icon && <submenu.icon />}
                     </div>
                     <div>
-                      <h6 className="text-2xl font-semibold">{submenu.name}</h6>
+                      <h6 className="text-xl font-semibold">{submenu.name}</h6>
                       <p className="text-sm">{submenu.desc}</p>
                     </div>
                   </div>

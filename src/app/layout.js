@@ -36,8 +36,8 @@ export default function RootLayout({ children }) {
             <Navbar2/>
 {/*             <TransitionProvider>
  */}            <ClientWrapper /> {/* Place ProgressBar here */}
-            <main className="pt-0">{children}</main>
-{/*             </TransitionProvider>
+                  <main className="pt-0">{children}</main>
+{/*               </TransitionProvider>
  */}          </AuthProvider>
         </ThemeProvider>
 

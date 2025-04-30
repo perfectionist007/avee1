@@ -115,13 +115,15 @@ export const Menus = [
         name: "Hospital Management",
         desc: "Manage Hospital from our ERP",
         icon: CircleHelp,
+        link: "/hospitalmanagement"
       },
       {
         name: "Jail Management",
         desc: "Manage Jail Prisoners from our high end ERP Solution",
         icon: MessageCircle,
-      },
-      {
+        link: "/jailmanagement"
+      }
+      /* {
         name: "POS",
         desc: "Manage and monitor your store from our Point of Sales ERP",
         icon: TriangleAlert,
@@ -130,14 +132,18 @@ export const Menus = [
         name: "HR Management",
         desc: "Manage your company's HR through our ERP system",
         icon: TriangleAlert,
-      },
+      }, */
     ],
     gridCols: 1,
   },
   {
     name: "Gallery",
+    link: "/underdevelopment"
+
   },
   {
     name: "Contact",
+    link: "/underdevelopment"
+
   },
 ];
